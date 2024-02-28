@@ -2,11 +2,20 @@ header{
     display: flex;
     margin-left: 2%;
   }
+
+body {
+    display: grid;
+    grid-template-columns: 0.7fr 1.6fr 0.7fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+  
   .speler1{
     background-color: white;    
     border-style: solid;
     border-width: 2px; 
-    width: 25%;
+    width: 100%;
     text-align: center;
     display: grid;
     grid-template-columns: 60% repeat(2, 1fr);
@@ -17,8 +26,87 @@ header{
   }
   .speler1{
     border-style: solid;
+    border-width: 2px;  
   }
   
   .numbers{
     text-align: left;
+    border-radius: solid;
+    border-width: 2px;
   }
+  
+
+  .last{
+    background-color: lightgreen;
+    margin: 0;
+    padding: 0;
+    padding-top: 20%;
+    border-style: solid;  
+    border-width: 2px;
+  }
+
+  .mid{
+    background-color: lightcyan;
+    margin: 0;
+    padding-top: 20%;
+    border-style: solid;
+    border-width: 2px;
+  }
+
+.bottom{
+  border-style: solid;
+    border-width: 2px;  
+    width: 100%;
+    display: grid;
+    grid-template-columns: 60% repeat(2, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    text-align: center;
+
+}
+
+.player1{ 
+  display: flex;
+}
+
+.input1{
+ margin: 1.5%;
+ border: 1px solid black;
+}
+
+.player2{ 
+  display: flex;
+}
+
+.input2{
+
+  margin: 1.5%;
+  border: 1px solid black;
+
+}
+
+.speler2{
+  background-color: white;    
+    border-style: solid;
+    border-width: 2px; 
+    width: 100%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 60% repeat(2, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.bottom2{
+  border-style: solid;
+    border-width: 2px;  
+    width: 100%;
+    display: grid;
+    grid-template-columns: 60% repeat(2, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    text-align: center;
+}
