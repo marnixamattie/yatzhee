@@ -8,35 +8,38 @@
     <script src="yatzhee.js"></script>
 </head>
 <body>
+    <button onclick="roll()" type="button" id="roll" class="roll">roll</button>
+    <button onclick="reset()" type="button" id="reset" >reset</button>
     <section class="player1Parent">
     <div class="player1">
         <h1>Player 1</h1>
         <input class="input1" type="text">
-    </div>
+        <h3 id="rollsLeft">rolls left: 3  </h3>
+            </div>
 <div class="speler1">
 
     <h2 class="numbers">ones</h2>
-    <h2 class="mid">0</h2>
+    <h2 id="ones" class="mid">0</h2>
     <h2 class="last" v onclick="calculate(1)">0</h2>
 
     <h2  class="numbers">twos</h2>
-    <h2 class="mid">0</h2>
+    <h2 id="twos"  class="mid">0</h2>
     <h2 class="last" onclick="calculate(2)">0</h2>
 
     <h2 class="numbers">threes</h2>
-    <h2 class="mid">0</h2>
+    <h2 id="threes"  class="mid">0</h2>
     <h2 class="last" onclick="calculate(3)">0</h2>
 
     <h2 class="numbers">fours</h2>
-    <h2 class="mid">0</h2>
+    <h2 id="fours"  class="mid">0</h2>
     <h2 class="last" onclick="calculate(4)">0</h2>
 
     <h2 class="numbers">fives</h2>
-    <h2 class="mid">0</h2>
+    <h2 id="fives"  class="mid">0</h2>
     <h2 class="last" onclick="calculate(5)">0</h2>
 
     <h2 class="numbers">sixes</h2>
-    <h2 class="mid">0</h2>
+    <h2 id="sixes"  class="mid">0</h2>
     <h2 class="last" onclick="calculate(6)">0</h2>
 
     <h2 class="numbers">subtotal</h2>
@@ -91,6 +94,13 @@
 </section>
 
 <section class="table">
+    <div class="dice">
+    <img onclick="stopDice(1)" class="dices" id="dice1" src="dice1.png" alt="">
+    <img onclick="stopDice(2)" class="dices"  id="dice2" src="dice2.png" alt="">
+    <img onclick="stopDice(3)" class="dices"  id="dice3" src="dice3.png" alt="">
+    <img onclick="stopDice(4)" class="dices"  id="dice4" src="dice4.png" alt="">
+    <img onclick="stopDice(5)" class="dices"  id="dice5" src="dice5.png" alt="">
+</div>
 </section>
 
 <section class="player2Parent">
