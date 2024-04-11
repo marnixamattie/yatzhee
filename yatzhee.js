@@ -8,6 +8,15 @@ let dielock4 = false;
 let dielock5 = false;
 let calculateScore = 0;
 
+let countsAndSums = {
+   one: {count: 0, sum: 0},
+   two: {count: 0, sum: 0},
+   three: {count: 0, sum: 0},
+   four: {count: 0, sum: 0},
+   five: {count: 0, sum: 0},
+   six: {count: 0, sum: 0}
+};
+
 let one = 0;
 let two = 0;
 let three = 0;
@@ -52,7 +61,7 @@ function calculate(number){
    element.clicked = true;
 
    // Array of possible values
-   var possibleValues = ['ones', 'twos', 'threes', 'fours', 'fives', 'sixes', 'tof', 'fok', 'fh', 'ss', 'ls', 'chance', 'yatzhee'];
+   var possibleValues = ['ones', 'twos', 'threes', 'fours', 'fives', 'sixes', 'tok', 'fok', 'fh', 'ss', 'ls', 'chance', 'yatzhee'];
 
    possibleValues.forEach(value => {
        if(number === value) {
@@ -61,6 +70,7 @@ function calculate(number){
            element.style.background = "rgb(0,0,0,0.6)";
        }
    });
+   roll();
 }
 
 function calculateTotal(){
@@ -70,11 +80,70 @@ let threes = document.getElementById("threesl")?.textContent;
 let fours = document.getElementById("foursl")?.textContent;
 let fives = document.getElementById("fivesl")?.textContent;
 let sixes = document.getElementById("sixesl")?.textContent;
+let threeOfAkind = document.getElementById("tokl").textContent;
+let fourOfAkind = document.getElementById("fokl").textContent;
+let fullHouse = document.getElementById("fhl").textContent;
+let smallStraight = document.getElementById("ssl").textContent;
+let largeStraight = document.getElementById("lsl").textContent;
+let chance = document.getElementById("chancel").textContent;
+let yatzhee = document.getElementById("yatzheel").textContent;
+
+document.getElementById("voltotal").textContent = parseInt(threeOfAkind) + parseInt(fourOfAkind) + parseInt(fullHouse) + parseInt(smallStraight) + parseInt(largeStraight) + parseInt(chance) + parseInt(yatzhee);
+
 
 let total = parseInt(ones) + parseInt(twos) + parseInt(threes) + parseInt(fours) + parseInt(fives) + parseInt(sixes);
 
 document.getElementById("last").textContent = total;
+if(total >= 63){
+   document.getElementById("bonuss").textContent = 35;
+   document.getElementById("totaal").textContent = total + 35;
+
+}else{
+   document.getElementById("totaal").textContent = total;
+
 }
+}
+
+function threeOfAKind(){
+   if(countsAndSums.one.count >= 3 || countsAndSums.two.count >= 3 || countsAndSums.three.count >= 3 || countsAndSums.four.count >= 3 || countsAndSums.five.count >= 3 || countsAndSums.six.count >= 3){
+   let threeOfAkind = document.getElementById('tok').textContent = (one + two + three + four + five);
+   }
+}
+
+function fourOfAKind(){
+   if(countsAndSums.one.count >= 4 || countsAndSums.two.count >= 4 || countsAndSums.three.count >= 4 || countsAndSums.four.count >= 4 || countsAndSums.five.count >= 4 || countsAndSums.six.count >= 4){
+   let fourOfAkind = document.getElementById("fok").textContent = (one + two + three + four + five);
+   }
+}
+
+function fullHouse(){
+   if((countsAndSums.one.count === 3 || countsAndSums.two.count === 3 || countsAndSums.three.count === 3 || countsAndSums.four.count === 3 || countsAndSums.five.count === 3 || countsAndSums.six.count === 3) && (countsAndSums.one.count === 2 || countsAndSums.two.count === 2 || countsAndSums.three.count === 2 || countsAndSums.four.count === 2 || countsAndSums.five.count === 2 || countsAndSums.six.count === 2)){
+      document.getElementById("fh").textContent = 25;
+   }
+}
+
+function smallStraight(){
+   if((countsAndSums.one.count >= 1 && countsAndSums.two.count >= 1 && countsAndSums.three.count >= 1 && countsAndSums.four.count >= 1) || (countsAndSums.two.count >= 1 && countsAndSums.three.count >= 1 && countsAndSums.four.count >= 1 && countsAndSums.five.count >= 1) || (countsAndSums.three.count >= 1 && countsAndSums.four.count >= 1 && countsAndSums.five.count >= 1 && countsAndSums.six.count >= 1)){
+      document.getElementById("ss").textContent = 30;
+   }
+}
+
+function largeStraight(){
+   if((countsAndSums.one.count === 1 && countsAndSums.two.count === 1 && countsAndSums.three.count === 1 && countsAndSums.four.count === 1 && countsAndSums.five.count === 1) || (countsAndSums.two.count === 1 && countsAndSums.three.count === 1 && countsAndSums.four.count === 1 && countsAndSums.five.count === 1 && countsAndSums.six.count === 1)){
+      document.getElementById("ls").textContent = 40;
+   }
+}
+
+function chance(){
+   document.getElementById("chance").textContent = (one + two + three + four + five);
+}
+
+function yatzhee(){
+   if(countsAndSums.one.count === 5 || countsAndSums.two.count === 5 || countsAndSums.three.count === 5 || countsAndSums.four.count === 5 || countsAndSums.five.count === 5 || countsAndSums.six.count === 5){
+      document.getElementById("yatzhee").textContent = 50;
+   }
+}
+
 
 function roll(){
    if(hold = true){
@@ -104,7 +173,12 @@ function roll(){
       four = getValue(dice4);
 
       five = getValue(dice5);
-let countsAndSums = {
+
+// Array of dice values
+let diceValues = [one, two, three, four, five];
+console.log(diceValues);
+
+countsAndSums = {
    one: {count: 0, sum: 0},
    two: {count: 0, sum: 0},
    three: {count: 0, sum: 0},
@@ -112,10 +186,6 @@ let countsAndSums = {
    five: {count: 0, sum: 0},
    six: {count: 0, sum: 0}
 };
-
-// Array of dice values
-let diceValues = [one, two, three, four, five, six];
-
 diceValues.forEach(value => {
    switch(value) {
        case 1:
@@ -172,10 +242,17 @@ diceValues.forEach(value => {
 }
 //zelfde als reset
 reset();
+threeOfAKind();
+fourOfAKind();
+fullHouse();
+smallStraight();
+largeStraight();
+chance();
+yatzhee();
 }
 
 function stopDice(diceNumber){
-   console.log(`Dice ${diceNumber} stopped rolling`);
+
    if(diceNumber == 1){
       dielock1 = true;
       document.getElementById("dice1").style.border = "2px solid red";
