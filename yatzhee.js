@@ -88,16 +88,23 @@ let largeStraight = document.getElementById("lsl").textContent;
 let chance = document.getElementById("chancel").textContent;
 let yatzhee = document.getElementById("yatzheel").textContent;
 
-document.getElementById("voltotal").textContent = parseInt(threeOfAkind) + parseInt(fourOfAkind) + parseInt(fullHouse) + parseInt(smallStraight) + parseInt(largeStraight) + parseInt(chance) + parseInt(yatzhee);
+let volTotal = document.getElementById("voltotal").textContent = parseInt(threeOfAkind) + parseInt(fourOfAkind) + parseInt(fullHouse) + parseInt(smallStraight) + parseInt(largeStraight) + parseInt(chance) + parseInt(yatzhee);
+
 
 
 let total = parseInt(ones) + parseInt(twos) + parseInt(threes) + parseInt(fours) + parseInt(fives) + parseInt(sixes);
+
+document.getElementById("totaal").textContent = total;
+if(total >= 63){
+document.getElementById("grandTotal").textContent = volTotal + total + 35;
+}else(
+document.getElementById("grandTotal").textContent = volTotal + total
+)
 
 document.getElementById("last").textContent = total;
 if(total >= 63){
    document.getElementById("bonuss").textContent = 35;
    document.getElementById("totaal").textContent = total + 35;
-
 }else{
    document.getElementById("totaal").textContent = total;
 
